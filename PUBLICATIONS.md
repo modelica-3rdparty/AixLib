@@ -6,6 +6,7 @@
 1. [District Heating and Cooling](#dhc)
 1. [Fast HVAC](#fasthvac)
 1. [Building Automation Systems](#bas)
+1. [Heat Generation](#heatgeneration)
 
 
 ## Building Physics <a name="buildingphysics"></a>
@@ -76,3 +77,10 @@ Stinner, S., Schumacher, M., Finkbeiner, K., Streblow, R., & Müller, D. (2015).
 
 #### Hardware-in-the-Loop-Simulation of a Building Energy and Control System to Investigate Circulating Pump Control Using Modelica
 Schneider, G. F., Oppermann, J., Constantin, A., Streblow, R., & Müller, D. (2015). In: Proceedings of the International Modelica Conference, Versailles, France, September 21-23, pp. 225-233, DOI: [DOI: 10.3384/ecp15118225](http://dx.doi.org/10.3384/ecp15118225)
+
+
+## Heat Generation <a name="heatgeneration"></a>
+
+### Modular Heat Pump and Chiller model
+
+Wüllhorst, Fabian, et al. "A modular model of reversible heat pumps and chillers for system applications." Proceedings of 14th Modelica Conference 2021, Linköping, Sweden, September 20-24, 2021, DOI: [10.3384/ecp21181561](https://doi.org/10.3384/ecp21181561)
