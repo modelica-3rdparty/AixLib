@@ -3,12 +3,14 @@ model TableData4DDeltaT
   "4D data: condenser temperature, evaporator temperature, compressor speed, condenser dT"
   extends AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.BaseClasses.PartialTableData3D;
   extends
-    AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.BaseClasses.PartialHeatPumpTableDataND(
-    final u_nominal={TCon_nominal,TEva_nominal,y_nominal, dTCon_nominal},
-    final nDim=4,
+    AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.BaseClasses.PartialHeatPumpTableDataND
+    (
     redeclare replaceable
-      BESRules.RecordsCollection.VCLibPy4D.GenericVCLibPy4D
-      datTab);
+      AixLib.Fluid.HeatPumps.ModularReversible.Data.TableDataSDF.GenericVCLibPy
+      datTab constrainedby AixLib.Fluid.HeatPumps.ModularReversible.Data.TableDataSDF.TableData4DDeltaTCon.VCLibPy.GenericVCLibPy4D,
+    final u_nominal={TCon_nominal,TEva_nominal,y_nominal,dTCon_nominal},
+    final nDim=4);
+
   parameter Modelica.Units.SI.TemperatureDifference dTCon_nominal=10
     "Nominal condenser temperature difference to calculate scaling factor";
   Modelica.Blocks.Math.Add dTConMea(final k2=-1, final k1=1) "Condenser delta T" annotation (
@@ -48,13 +50,15 @@ equation
 </ul>
 </html>", info="<html>
 <p>
-  This model uses three-dimensional table data possibly given
-  by manufacturers or estimated using other tools, such as VCLibPy, to calculate
+  This model uses four-dimensional table data estimated using tools, such as VCLibPy, to calculate
   <code>QCon_flow</code> and <code>PEle</code>.
+  In addition to <a href=\"AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.TableData3D\">AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.TableData3D</a>, this model uses the secondary sides temperature spread at the condenser
+  to estimate efficiency and power. Thus, simulation studies with influence of consnder mass flow control 
+  are possible. Developed for the publication Römer et al., where you can also see the validation and impact on heat pump system design.
 </p>
 <p>
-  Note that losses are often implicitly included in measured data.
-  In this case, the frosting modules should be disabled.
+  Note that losses are often not implicitly included in generated data.
+  Thus, frosting modules should be used.
 </p>
 
 <h4>Scaling factor</h4>
@@ -62,17 +66,21 @@ equation
 For the scaling factor, the table data for condenser heat flow rate (<code>QConTabDat_flow</code>)
 is evaluated at nominal conditions. Hence, the scaling factor is
 </p>
-<pre>
-scaFac = QCon_flow_nominal/QConTabDat_flow(TCon_nominal, TEva_nominal, y_nominal).
+<code>
+scaFac = QCon_flow_nominal/QConTabDat_flow(TCon_nominal, TEva_nominal, y_nominal, dTCon_nominal).
 
-</pre>
+</code>
 <p>
 Using <code>scaFac</code>, the table data is scaled linearly.
 This implies a constant COP over different design sizes:
 </p>
 <p><code>QCon_flow = scaFac * tabQCon_flow.y</code> </p>
 <p><code>PEle = scaFac * tabPel.y</code></p>
-
+<h4>References</h4>
+<p>
+Römer, Fabian and Fuchs, Nico and Fuchs, Nico and Müller, Dirk, Practical, Near-Optimal Design Rule Extraction for Heat Pumps in Single-Family Buildings (September 03, 2025). Available at SSRN: 
+<a href=\"https://ssrn.com/abstract=5633891\">https://ssrn.com/abstract=5633891</a>
+</p>
 
 </html>"));
 end TableData4DDeltaT;

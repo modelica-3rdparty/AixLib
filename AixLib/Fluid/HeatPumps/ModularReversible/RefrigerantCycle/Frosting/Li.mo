@@ -9,7 +9,7 @@ model Li "Frosting suppression based on Li et al."
   Modelica.Blocks.Math.Gain relHumInPer(final k=100)
     "Relative humidity in percent"
     annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
-  BESRules.Components.Frosting.BaseClasses.ZhuFrostingZone zhuFroZon
+  AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.Frosting.BaseClasses.ZhuFrostingZone zhuFroZon
     "Frosting zone"
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
 protected
@@ -46,4 +46,21 @@ equation
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
+  annotation (Documentation(revisions="<html>
+<ul>
+  <li>
+    <i>December 22, 2025</i> by Fabian Roemer:<br/>
+    First implementation (see issue <a href=
+    \"https://github.com/RWTH-EBC/AixLib/issues/1520\">AixLib #1623</a>)
+  </li>
+</ul>
+</html>", info="<html>
+This model implements frosting surpression following Li et al.
+As the frosting surpression is not dependent on the heating or cooling mode, but rather just on the ambient conditions, this model should not be used together with a defrost control.
+<h4>References</h4>
+<p>
+Li, Z., Wei, W., Wang, W., Sun, Y., Wang, S., Lin, Y., ... and Deng, S. (2023). A method for sizing air source heat pump considering the joint effect of outdoor air temperature and relative humidity. Journal of Building Engineering, 65, 105815.
+<a href=\"https://doi.org/10.1016/j.jobe.2022.105815\">https://doi.org/10.1016/j.jobe.2022.105815</a>.
+</p>
+</html>"));
 end Li;

@@ -93,20 +93,20 @@ equation
   connect(notHea.y, hea) annotation (Line(points={{91,60},{108,60},{108,14},{96,
           14},{96,0},{110,0}},
                color={255,0,255}));
-  connect(hys.u, sigBus.iceFacHPMea) annotation (Line(points={{-84,80},{-108,80},
-          {-108,0}},         color={0,0,127}), Text(
+  connect(hys.u, sigBus.iceFacHPMea) annotation (Line(points={{-84,80},{-102,80},
+          {-102,0}},         color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
-  connect(lesEquThr.u, sigBus.iceFacHPMea) annotation (Line(points={{-82,-10},{-82,
-          0},{-108,0}},           color={0,0,127}), Text(
+  connect(lesEquThr.u, sigBus.iceFacHPMea) annotation (Line(points={{-82,-10},{
+          -82,0},{-102,0}},       color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
-  connect(swi.u2, sigBus.onOffMea) annotation (Line(points={{18,-50},{-108,-50},
-          {-108,0}}, color={255,0,255}), Text(
+  connect(swi.u2, sigBus.onOffMea) annotation (Line(points={{18,-50},{-102,-50},
+          {-102,0}}, color={255,0,255}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
@@ -118,14 +118,14 @@ equation
                      color={0,0,127}));
   connect(critDefTim_internal.y, swi.u1) annotation (Line(points={{-3,-34},{10,-34},
           {10,-42},{18,-42}}, color={0,0,127}));
-  connect(froZon.TOda, sigBus.TEvaInMea) annotation (Line(points={{-82,-56},{-108,
-          -56},{-108,0}},      color={0,0,127}), Text(
+  connect(froZon.TOda, sigBus.TEvaInMea) annotation (Line(points={{-82,-56},{
+          -102,-56},{-102,0}}, color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
-  connect(froZon.relHum, sigBus.relHum) annotation (Line(points={{-82,-64},{-108,
-          -64},{-108,0}},      color={0,0,127}), Text(
+  connect(froZon.relHum, sigBus.relHum) annotation (Line(points={{-82,-64},{
+          -102,-64},{-102,0}}, color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
@@ -141,14 +141,32 @@ equation
           {-40,-8},{-40,-10},{-32,-10}}, color={255,0,255}));
   connect(andIsOn1.u, froZon.zon) annotation (Line(points={{-40,-62},{-40,-60},{
           -58,-60}}, color={255,127,0}));
-  connect(andIsOn.u1, sigBus.onOffMea) annotation (Line(points={{-82,30},{-108,30},
-          {-108,0}}, color={255,0,255}), Text(
+  connect(andIsOn.u1, sigBus.onOffMea) annotation (Line(points={{-82,30},{-102,
+          30},{-102,0}},
+                     color={255,0,255}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
-  annotation (Icon(graphics={Text(
-          extent={{-64,46},{78,-56}},
+  annotation (                     experiment(StopTime=2592000, Interval=500),
+    Documentation(info="<html>
+<p>This defrost control uses a time-based approach from Zhu et al. coupled with their three frosting zones. The three zones depend outdoor air temperature and humidity. Depending on the zone, a different time-interval for defrost is applied, taken from Table 4 in Zhu et al: 30, 60 and 165 min for severe, moderate and mild zones, respectively. Contrary to Zhu et al, moderate and mild frosting zones are not further seperated. The 60 and 135 min defrost time are the average value for those zones reported in Zhu et al. </p>
+<h4>References</h4>
+<p>
+J.H. Zhu, Y.Y. Sun, W. Wang, S.M. Deng, Y.J. Ge, and L.T. Li. Developing a new frosting map to guide defrosting control for air-source heat pump units. Applied Thermal Engineering, November 2015
+  <a href=\\\"https://doi.org/10.1016/j.applthermaleng.2015.06.076\\\">doi:10.1016/j.applthermaleng.2015.06.076</a>.
+</p>
+</html>", revisions="<html>
+<ul>
+  <li>
+    <i>December 22, 2025</i> by Fabian Roemer:<br/>
+    First implementation (see issue <a href=
+    \"https://github.com/RWTH-EBC/AixLib/issues/1520\">AixLib #1623</a>)
+  </li>
+</ul>
+</html>"),
+    Icon(graphics={          Text(
+          extent={{-62,52},{80,-50}},
           lineColor={0,0,0},
-          textString="f(CICO)")}), experiment(StopTime=2592000, Interval=500));
+          textString="Zhu et al.")}));
 end ZhuTimeBasedDefrost;

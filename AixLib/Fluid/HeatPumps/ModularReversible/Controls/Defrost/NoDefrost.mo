@@ -11,5 +11,15 @@ equation
   annotation (Icon(graphics={Text(
           extent={{-68,-50},{80,48}},
           lineColor={0,0,0},
-          textString="=1")}));
+          textString="hea")}), Documentation(revisions="<html>
+<ul>
+  <li>
+    <i>December 22, 2025</i> by Fabian Roemer:<br/>
+    First implementation (see issue <a href=
+    \"https://github.com/RWTH-EBC/AixLib/issues/1520\">AixLib #1623</a>)
+  </li>
+</ul>
+</html>", info="<html>
+Disables defrost control.
+</html>"));
 end NoDefrost;

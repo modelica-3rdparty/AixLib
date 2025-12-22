@@ -33,7 +33,21 @@ equation
     annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
     annotation (Dialog(group="Initialization"),
     Documentation(info="<html>
-    <p>Default values are based on Korn et al. Other values are e.g. according to Hermes: k=4.7465, T=7930.098</p>
+<p>Default values are based on Korn et al. Other values are e.g. according to Hermes: k=4.7465, T=7930.098.</p>
+<h4>References</h4>
+<p>Dieter Korn. Effizienter Betrieb von Kälteanlagen: Energieeinsparung, Wärmerückgewinnung, Abwärmenutzung. VDE VERLAG GMBH, Berlin Offenbach, 2014. ISBN 978-3-8007-3853-3.</p>
+<p>
+Hermes, Christian J. L. ; Piucco, Robson O. ; Barbosa, Jader R. ; Melo, Cláudio: A study of frost growth and densification on flat surfaces. In: Experimental Thermal and Fluid Science 33 (2009), Januar, Nr. 2, 371–379. 
+<a href=\\\"https://dx.doi.org/10.1016/j.expthermflusci.2008.10.006\\\">https://dx.doi.org/10.1016/j.expthermflusci.2008.10.006</a>.
+</p>
+</html>", revisions="<html>
+<ul>
+  <li>
+    <i>December 22, 2025</i> by Fabian Roemer:<br/>
+    First implementation (see issue <a href=
+    \"https://github.com/RWTH-EBC/AixLib/issues/1520\">AixLib #1623</a>)
+  </li>
+</ul>
 </html>"),
          Icon(
   coordinateSystem(preserveAspectRatio=true,

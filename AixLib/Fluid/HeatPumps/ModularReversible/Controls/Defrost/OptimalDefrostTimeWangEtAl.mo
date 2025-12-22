@@ -5,7 +5,7 @@ model OptimalDefrostTimeWangEtAl
     BaseClasses.PartialDefrost;
   parameter Real minIceFac=0.5
     "Minimal allowed icing Factor to trigger the defrost";
-  BESRules.Components.Frosting.HysteresisVariableLowerBound hys(uHigh=0.99,
+  AixLib.Fluid.HeatPumps.ModularReversible.Controls.Defrost.BaseClasses.HysteresisVariableLowerBound hys(uHigh=0.99,
       pre_y_start=true)
     "For the iceFac control. Output signal is used internally" annotation (
       Placement(transformation(extent={{-10,-10},{10,10}}, origin={10,10})));
@@ -17,7 +17,7 @@ model OptimalDefrostTimeWangEtAl
   Modelica.Blocks.Logical.Not notHea "If defrost, we set hea=false"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}}, origin={82,0})));
 
-  AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.Frosting.OptimalDefrostWuEtAl
+  AixLib.Fluid.HeatPumps.ModularReversible.Controls.Defrost.BaseClasses.OptimalDefrostWangEtAl
     optDefWuEtAl "Optimal defrost time"
     annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
   Modelica.Blocks.Logical.Switch swi annotation (Placement(transformation(
@@ -42,7 +42,7 @@ model OptimalDefrostTimeWangEtAl
     "In frosting zone and on leads to possible frosting" annotation (Placement(
         transformation(extent={{-10,-10},{10,10}}, origin={-50,-40},
         rotation=0)));
-  BESRules.Components.Frosting.BaseClasses.ZhuFrostingZone froZon
+  AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.Frosting.BaseClasses.ZhuFrostingZone froZon
     "Current zone"
     annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
 equation
@@ -55,20 +55,20 @@ equation
   connect(notHea.y, hea) annotation (Line(points={{93,0},{110,0}},
                color={255,0,255}));
   connect(hys.u, sigBus.iceFacHPMea) annotation (Line(points={{-2,14},{-12,14},
-          {-12,54},{-108,54},{-108,0}},
+          {-12,54},{-102,54},{-102,0}},
                              color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
   connect(optDefWuEtAl.TOda, sigBus.TEvaInMea) annotation (Line(points={{-82,34},
-          {-108,34},{-108,0}}, color={0,0,127}), Text(
+          {-102,34},{-102,0}}, color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
   connect(optDefWuEtAl.relHum, sigBus.relHum) annotation (Line(points={{-82,26},
-          {-108,26},{-108,0}}, color={0,0,127}), Text(
+          {-102,26},{-102,0}}, color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
@@ -86,8 +86,8 @@ equation
   connect(posFro.y,andIsOn. u2) annotation (Line(points={{21,-70},{26,-70},{26,-52},
           {-62,-52},{-62,-48}},
                          color={255,0,255}));
-  connect(andIsOn.u1, sigBus.onOffMea) annotation (Line(points={{-62,-40},{-108,
-          -40},{-108,0}},
+  connect(andIsOn.u1, sigBus.onOffMea) annotation (Line(points={{-62,-40},{-102,
+          -40},{-102,0}},
                      color={255,0,255}), Text(
       string="%second",
       index=1,
@@ -97,15 +97,14 @@ equation
           {-84,-26},{-84,10},{-42,10}}, color={255,0,255}));
   connect(andIsOn.y, andDefrost.u2) annotation (Line(points={{-39,-40},{-36,-40},
           {-36,-8},{38,-8}}, color={255,0,255}));
-  connect(froZon.relHum, sigBus.relHum) annotation (Line(points={{-82,-74},{-132,
-          -74},{-132,0},{-108,0}},
-                               color={0,0,127}), Text(
+  connect(froZon.relHum, sigBus.relHum) annotation (Line(points={{-82,-74},{
+          -102,-74},{-102,0}}, color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
-  connect(froZon.TOda, sigBus.TEvaInMea) annotation (Line(points={{-82,-66},{-108,
-          -66},{-108,0}},      color={0,0,127}), Text(
+  connect(froZon.TOda, sigBus.TEvaInMea) annotation (Line(points={{-82,-66},{
+          -102,-66},{-102,0}}, color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
@@ -116,5 +115,24 @@ equation
           extent={{-64,46},{78,-56}},
           lineColor={0,0,0},
           textString="Wang et al.")}),
-                                   experiment(StopTime=2592000, Interval=500));
+                                   experiment(StopTime=2592000, Interval=500),
+    Documentation(revisions="<html>
+<ul>
+  <li>
+    <i>December 22, 2025</i> by Fabian Roemer:<br/>
+    First implementation (see issue <a href=
+    \"https://github.com/RWTH-EBC/AixLib/issues/1520\">AixLib #1623</a>)
+  </li>
+</ul>
+</html>", info="<html>
+<p>
+This defrost control uses the optimal defrost icing factor by Wang et al.
+Every time the current icing factor is lower than the optimal icing factor to start the defrost, defrost is performed.
+</p>
+<h4>References</h4>
+<p>
+Wang, W., Zhang, S., Li, Z., Sun, Y., Deng, S., and Wu, X. (2020). Determination of the optimal defrosting initiating time point for an ASHP unit based on the minimum loss coefficient in the nominal output heating energy. Energy, 191, 116505.
+  <a href=\\\"https://doi.org/10.1016/j.energy.2019.116505\\\">https://doi.org/10.1016/j.energy.2019.116505</a>.
+</p>
+</html>"));
 end OptimalDefrostTimeWangEtAl;

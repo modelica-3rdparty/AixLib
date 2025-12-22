@@ -48,5 +48,16 @@ equation
         extent={{-150,138},{150,98}},
         textString="%name",
         textColor={0,0,255})}),                                  Diagram(
-        coordinateSystem(preserveAspectRatio=false)));
+        coordinateSystem(preserveAspectRatio=false)),
+    Documentation(info="<html>
+<p>Helper model to integrate the ice mass and reset its value depending on the boolean input.</p>
+</html>", revisions="<html>
+<ul>
+  <li>
+    <i>December 22, 2025</i> by Fabian Roemer:<br/>
+    First implementation (see issue <a href=
+    \"https://github.com/RWTH-EBC/AixLib/issues/1520\">AixLib #1623</a>)
+  </li>
+</ul>
+</html>"));
 end IceMassIntegrator;

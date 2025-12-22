@@ -3,7 +3,7 @@ model ReverseCycleDefrostHeatPump
   "Heat pump in reverse cycle operation during defrost"
   extends
     AixLib.Fluid.Chillers.ModularReversible.RefrigerantCycle.BaseClasses.PartialChillerCycle(
-    QCoo_flow_nominal=PEle_nominal*COP_constant,
+    QCoo_flow_nominal=-PEle_nominal*COP_constant*y_constant,
     PEle_nominal=2000,
     redeclare final
       AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.Frosting.NoFrosting
@@ -30,33 +30,24 @@ equation
           {-24,-14},{-24,-78}}, color={0,0,127}));
   connect(conPEle.y, redQCon.u2) annotation (Line(points={{30,19},{30,-54},{64,-54},
           {64,-78}}, color={0,0,127}));
-  annotation (Icon(graphics={
-        Text(
-          lineColor={0,0,255},
-          extent={{-136,109},{164,149}},
-          textString="%name")}),
-                             Documentation(revisions="<html><ul>
+  annotation (               Documentation(revisions="<html>
+<ul>
   <li>
-    <i>May 22, 2019&#160;</i> by Julian Matthes:<br/>
+    <i>December 22, 2025</i> by Fabian Roemer:<br/>
     First implementation (see issue <a href=
-    \"https://github.com/RWTH-EBC/AixLib/issues/715\">#715</a>)
+    \"https://github.com/RWTH-EBC/AixLib/issues/1520\">AixLib #1623</a>)
   </li>
 </ul>
 </html>", info="<html>
+This model can be used to estimate the heat pumps behavior during defrost. 
+It assumes a constant COP and a constant compressor speed (usually low to have efficient defrost).
+The default values were calibrated for the custom build heat pump at the Institute EBC.
+Still, note that the model heavily simplifies the real dynamics during defrost.
+The model was used for studies in the PhD of Fabian Römer, e.g. the publication Römer et al.
+<h4>References</h4>
 <p>
-  This model is used to calculate the three values based on a
-  functional approach. The user can choose between several functions or
-  use their own.
-</p>
-<p>
-  As the <a href=
-  \"modelica://AixLib.Fluid.HeatPumps.BaseClasses.Functions.Characteristics.PartialBaseFct\">
-  base function</a> only returns the electrical power and the condenser
-  heat flow, the evaporator heat flow is calculated with the following
-  energy balance:
-</p>
-<p>
-  <i>QEva = QCon - P_el</i>
+Römer, Fabian and Fuchs, Nico and Fuchs, Nico and Müller, Dirk, Practical, Near-Optimal Design Rule Extraction for Heat Pumps in Single-Family Buildings (September 03, 2025). Available at SSRN: 
+<a href=\\\"https://ssrn.com/abstract=5633891\\\">https://ssrn.com/abstract=5633891</a>
 </p>
 </html>"));
 end ReverseCycleDefrostHeatPump;

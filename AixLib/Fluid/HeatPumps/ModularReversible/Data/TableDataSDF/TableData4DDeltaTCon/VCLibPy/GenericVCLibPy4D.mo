@@ -1,4 +1,4 @@
-within AixLib.Fluid.HeatPumps.ModularReversible.Data.TableDataSDF.VCLibPy4DDeltaT;
+within AixLib.Fluid.HeatPumps.ModularReversible.Data.TableDataSDF.TableData4DDeltaTCon.VCLibPy;
 partial record GenericVCLibPy4D
   "Partial record for 4D VCLibPy data for heat pumps"
   extends

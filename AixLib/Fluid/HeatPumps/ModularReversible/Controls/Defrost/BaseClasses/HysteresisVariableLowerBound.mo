@@ -120,5 +120,13 @@ The start value of the output is defined via parameter
 <strong>pre_y_start</strong> (= value of pre(y) at initial time).
 The default value of this parameter is <strong>false</strong>.
 </p>
+</html>", revisions="<html>
+<ul>
+  <li>
+    <i>December 22, 2025</i> by Fabian Roemer:<br/>
+    First implementation (see issue <a href=
+    \"https://github.com/RWTH-EBC/AixLib/issues/1520\">AixLib #1623</a>)
+  </li>
+</ul>
 </html>"));
 end HysteresisVariableLowerBound;
