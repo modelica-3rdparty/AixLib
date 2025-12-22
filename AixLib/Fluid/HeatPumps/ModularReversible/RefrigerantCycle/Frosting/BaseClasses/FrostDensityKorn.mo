@@ -38,7 +38,7 @@ equation
 <p>Dieter Korn. Effizienter Betrieb von Kälteanlagen: Energieeinsparung, Wärmerückgewinnung, Abwärmenutzung. VDE VERLAG GMBH, Berlin Offenbach, 2014. ISBN 978-3-8007-3853-3.</p>
 <p>
 Hermes, Christian J. L. ; Piucco, Robson O. ; Barbosa, Jader R. ; Melo, Cláudio: A study of frost growth and densification on flat surfaces. In: Experimental Thermal and Fluid Science 33 (2009), Januar, Nr. 2, 371–379. 
-<a href=\\\"https://dx.doi.org/10.1016/j.expthermflusci.2008.10.006\\\">https://dx.doi.org/10.1016/j.expthermflusci.2008.10.006</a>.
+<a href=\"https://dx.doi.org/10.1016/j.expthermflusci.2008.10.006\">https://dx.doi.org/10.1016/j.expthermflusci.2008.10.006</a>.
 </p>
 </html>", revisions="<html>
 <ul>

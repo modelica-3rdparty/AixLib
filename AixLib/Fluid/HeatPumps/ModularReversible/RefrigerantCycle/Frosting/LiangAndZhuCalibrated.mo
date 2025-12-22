@@ -82,7 +82,7 @@ AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.Frosting.BaseClasses.P
 <h4>References</h4>
 <p>
 Römer, Fabian and Fuchs, Nico and Fuchs, Nico and Müller, Dirk, Practical, Near-Optimal Design Rule Extraction for Heat Pumps in Single-Family Buildings (September 03, 2025). Available at SSRN: 
-<a href=\\\"https://ssrn.com/abstract=5633891\\\">https://ssrn.com/abstract=5633891</a>
+<a href=\"https://ssrn.com/abstract=5633891\">https://ssrn.com/abstract=5633891</a>
 </p>
 <p>
 J.H. Zhu, Y.Y. Sun, W. Wang, S.M. Deng, Y.J. Ge, and L.T. Li. Developing a new frosting map to guide defrosting control for air-source heat pump units. Applied Thermal Engineering, November 2015

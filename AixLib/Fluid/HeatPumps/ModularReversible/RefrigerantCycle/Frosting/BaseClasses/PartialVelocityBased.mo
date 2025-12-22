@@ -211,18 +211,18 @@ Note, it is important to add the <code>QEva_flow</code> and <code>relHum</code> 
 </p>
 <p>
 Density of the frost layer can be constant or dynamic using 
-<a href=\\\"modelica://AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.Frosting.BaseClasses.FrostDensityKorn\\\">
+<a href=\"modelica://AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.Frosting.BaseClasses.FrostDensityKorn\">
 AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.Frosting.BaseClasses.FrostDensityKorn
 </a>.
 </p>
 <h4>References</h4>
 <p>
 Römer, Fabian and Fuchs, Nico and Fuchs, Nico and Müller, Dirk, Practical, Near-Optimal Design Rule Extraction for Heat Pumps in Single-Family Buildings (September 03, 2025). Available at SSRN: 
-<a href=\\\"https://ssrn.com/abstract=5633891\\\">https://ssrn.com/abstract=5633891</a>
+<a href=\"https://ssrn.com/abstract=5633891\">https://ssrn.com/abstract=5633891</a>
 </p>
 <p>
 Vering, C., Wüllhorst, F., Mehrfeld, P., and Müller, D. (2021). Towards an integrated design of heat pump systems: Application of process intensification using two-stage optimization. Energy Conversion and Management, 250, 114888.
-<a href=\\\"https://doi.org/10.1016/j.apenergy.2024.123225\\\">https://doi.org/10.1016/j.apenergy.2024.123225</a>
+<a href=\"https://doi.org/10.1016/j.apenergy.2024.123225\">https://doi.org/10.1016/j.apenergy.2024.123225</a>
 </p>
 </html>"));
 end PartialVelocityBased;

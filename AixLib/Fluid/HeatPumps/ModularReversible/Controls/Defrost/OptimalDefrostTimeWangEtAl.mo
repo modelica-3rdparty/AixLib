@@ -132,7 +132,7 @@ Every time the current icing factor is lower than the optimal icing factor to st
 <h4>References</h4>
 <p>
 Wang, W., Zhang, S., Li, Z., Sun, Y., Deng, S., and Wu, X. (2020). Determination of the optimal defrosting initiating time point for an ASHP unit based on the minimum loss coefficient in the nominal output heating energy. Energy, 191, 116505.
-  <a href=\\\"https://doi.org/10.1016/j.energy.2019.116505\\\">https://doi.org/10.1016/j.energy.2019.116505</a>.
+  <a href=\"https://doi.org/10.1016/j.energy.2019.116505\">https://doi.org/10.1016/j.energy.2019.116505</a>.
 </p>
 </html>"));
 end OptimalDefrostTimeWangEtAl;

@@ -75,7 +75,7 @@ equation
 <h4>References</h4>
 <p>
 J.H. Zhu, Y.Y. Sun, W. Wang, S.M. Deng, Y.J. Ge, and L.T. Li. Developing a new frosting map to guide defrosting control for air-source heat pump units. Applied Thermal Engineering, November 2015
-  <a href=\\\"https://doi.org/10.1016/j.applthermaleng.2015.06.076\\\">doi:10.1016/j.applthermaleng.2015.06.076</a>.
+  <a href=\"https://doi.org/10.1016/j.applthermaleng.2015.06.076\">doi:10.1016/j.applthermaleng.2015.06.076</a>.
 </p>
 </html>"));
 end ZhuFrostingZone;

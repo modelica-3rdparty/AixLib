@@ -55,12 +55,12 @@ equation
   </li>
 </ul>
 </html>", info="<html>
-Helpger model to implement the optimal defrost icing factor by Wang et al.
+Helper model to implement the optimal defrost icing factor by Wang et al.
 </p>
 <h4>References</h4>
 <p>
 Wang, W., Zhang, S., Li, Z., Sun, Y., Deng, S., and Wu, X. (2020). Determination of the optimal defrosting initiating time point for an ASHP unit based on the minimum loss coefficient in the nominal output heating energy. Energy, 191, 116505.
-  <a href=\\\"https://doi.org/10.1016/j.energy.2019.116505\\\">https://doi.org/10.1016/j.energy.2019.116505</a>.
+  <a href=\"https://doi.org/10.1016/j.energy.2019.116505\">https://doi.org/10.1016/j.energy.2019.116505</a>.
 </p>
 </html>"));
 end OptimalDefrostWangEtAl;
