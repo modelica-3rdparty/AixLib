@@ -6,7 +6,7 @@ model TableData4DDeltaT
     AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.BaseClasses.PartialHeatPumpTableDataND
     (
     redeclare replaceable
-      AixLib.Fluid.HeatPumps.ModularReversible.Data.TableDataSDF.GenericVCLibPy
+      AixLib.Fluid.HeatPumps.ModularReversible.Data.TableDataSDF.TableData4DDeltaTCon.VCLibPy.GenericVCLibPy4D
       datTab constrainedby AixLib.Fluid.HeatPumps.ModularReversible.Data.TableDataSDF.TableData4DDeltaTCon.VCLibPy.GenericVCLibPy4D,
     final u_nominal={TCon_nominal,TEva_nominal,y_nominal,dTCon_nominal},
     final nDim=4);
