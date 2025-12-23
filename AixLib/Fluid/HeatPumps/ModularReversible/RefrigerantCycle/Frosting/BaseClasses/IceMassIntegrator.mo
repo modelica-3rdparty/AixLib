@@ -6,7 +6,8 @@ model IceMassIntegrator "Integrate the ice mass"
   Modelica.Blocks.Interfaces.RealInput mIceGro(unit="kg/s") "Ice growth rate"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
   Modelica.Blocks.Interfaces.RealOutput mIce(
-    final start=0, final min=0, final max=mIce_max, unit="kg") "Ice mass"
+    final start=0, final min=0, final max=mIce_max, unit="kg", fixed=true)
+    "Ice mass"
     annotation (Placement(transformation(extent={{100,-20},{140,20}})));
   Modelica.Blocks.Interfaces.BooleanInput reset if use_reset
     "Optional connector of reset signal" annotation(Placement(

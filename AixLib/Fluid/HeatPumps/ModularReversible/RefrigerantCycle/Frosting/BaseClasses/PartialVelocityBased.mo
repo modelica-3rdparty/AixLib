@@ -96,7 +96,9 @@ model PartialVelocityBased
   AixLib.Fluid.HeatPumps.ModularReversible.RefrigerantCycle.Frosting.BaseClasses.FrostDensityKorn froDenKornPT1(
     k=k,
     T=T,
-    den_min=den_min) if use_varDen
+    den_min=den_min,
+    y_internal(start=den_min, fixed=true))
+                     if use_varDen
     "Frost density according to Korn"
     annotation (Placement(transformation(extent={{20,80},{40,100}})));
 equation
